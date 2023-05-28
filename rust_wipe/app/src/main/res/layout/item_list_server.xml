@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="server"
+            type="com.iut.clermont.rustwipe.database.data.Server" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_server"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        card_view:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:id="@+id/layout_cardview_server"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_margin">
+
+            <TextView
+                android:id="@+id/view_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{server.name}"
+                android:fontFamily="sans-serif-medium"
+                android:textAppearance="?android:textAppearanceMedium"
+                tools:text="Server's Name" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/view_players"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{server.player.toString()}"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    tools:text="Current pop" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/separator"/>
+
+                <TextView
+                    android:id="@+id/view_maxplayers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{server.maxPlayer.toString()}"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    tools:text="Max pop" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

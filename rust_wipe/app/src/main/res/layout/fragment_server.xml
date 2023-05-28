@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="serverVM"
+            type="com.iut.clermont.rustwipe.viewmodel.ServerViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_margin"
+            tools:context=".ui.activity.ServerActivity">
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="right"
+                app:constraint_referenced_ids="text_gamemode, text_ip, text_country, text_country" />
+
+            <TextView
+                android:id="@+id/text_gamemode"
+                style="@style/CategStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gamemode"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_gamemode_data"
+                style="@style/DataStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_gamemode"
+                android:text="@{serverVM.server.type.toString()}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/text_gamemode"
+                app:layout_constraintStart_toEndOf="@id/barrier" />
+
+            <TextView
+                android:id="@+id/text_ip"
+                style="@style/CategStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ip_and_port"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_gamemode" />
+
+            <TextView
+                android:id="@+id/text_ip_data"
+                style="@style/DataStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_ip"
+                android:text="@{serverVM.server.ip.toString()}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/text_ip"
+                app:layout_constraintStart_toEndOf="@id/barrier" />
+
+            <TextView
+                android:id="@+id/text_separator_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/separator_2"
+                app:layout_constraintBaseline_toBaselineOf="@+id/text_ip"
+                app:layout_constraintStart_toEndOf="@id/text_ip_data" />
+
+            <TextView
+                android:id="@+id/text_port_data"
+                android:layout_marginStart="0dp"
+                style="@style/DataStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_port"
+                android:text="@{serverVM.server.port.toString()}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/text_ip"
+                app:layout_constraintStart_toEndOf="@id/text_separator_data"
+                android:layout_marginLeft="0dp" />
+
+            <TextView
+                android:id="@+id/text_country"
+                style="@style/CategStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/country"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_ip" />
+
+            <TextView
+                android:id="@+id/text_country_data"
+                style="@style/DataStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_county"
+                android:text="@{serverVM.server.country.toString()}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/text_country"
+                app:layout_constraintStart_toEndOf="@id/barrier" />
+
+            <TextView
+                android:id="@+id/text_description"
+                style="@style/CategStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_country" />
+
+            <TextView
+                android:id="@+id/text_description_data"
+                style="@style/DataStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_description"
+                android:text="@{serverVM.server.description}"
+                app:layout_constraintBaseline_toBaselineOf="@+id/text_description"
+                app:layout_constraintStart_toEndOf="@id/barrier" />
+
+            <TextView
+                android:id="@+id/text_note"
+                style="@style/CategStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/note"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_description_data" />
+
+            <RatingBar
+                android:id="@+id/ratingbar_aggressiveness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="@={(float) serverVM.server.note}"
+                android:stepSize="1"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toTopOf="@+id/text_note" />
+
+            <TextView
+                android:id="@+id/text_map"
+                style="@style/CategStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/map"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ratingbar_aggressiveness" />
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="500dp"
+                android:maxHeight="500dp"
+                app:layout_constraintStart_toStartOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/text_map"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

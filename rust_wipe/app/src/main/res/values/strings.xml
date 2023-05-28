@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">RustWipe</string>
+    <string name="action_delete">Delete</string>
+    <string name="add_server">Add a Server</string>
+    <string name="action_save">Save a Server</string>
+    <string name="add_server_accessibility_text">Add a server to the list</string>
+    <string name="empty_view_title_text">It\'s quite silent here</string>
+    <string name="empty_view_subtitle_text">Consider to add some servers</string>
+    <string name="servers_subtitle_format">Server %d</string>
+    <string name="server_name">Server name</string>
+    <string name="gamemode">Gamemode</string>
+    <string name="ip_and_port">Ip</string>
+    <string name="country">Country</string>
+    <string name="description">Description</string>
+    <string name="note">Note</string>
+    <string name="separator">" / "</string>
+    <string name="separator_2">" : "</string>
+    <string name="map">Map</string>
+
+    <string name="hint_server_name">Rust Server N°1</string>
+    <string name="hint_ip">123.456.789</string>
+    <string name="hint_port">12345</string>
+    <string name="hint_gamemode">SURVIVAL</string>
+    <string name="hint_county">GB</string>
+    <string name="hint_description">I\'m a description of a server\n OMG this is me</string>
+</resources>

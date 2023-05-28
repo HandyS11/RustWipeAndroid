@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="orange">#ebbc76</color>
+    <color name="orange_darker">#dc6a38</color>
+    <color name="orange_night">#9c4323</color>
+    <color name="orange_night_darker">#731402</color>
+    <color name="text_black">#212121</color>
+    <color name="text_black_lighter">#727272</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="ic_launcher_background">@color/black</color>
+    <color name="editorColorPrimary">#2D3640</color>
+    <color name="editorColorPrimaryDark">#394450</color>
+</resources>
